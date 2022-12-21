@@ -12,7 +12,7 @@ let currPos = datesDiv.scrollLeft;
 
 function rightScroll(){
     if ((datesDiv.scrollLeft + datesDiv.clientWidth) >= datesDiv.scrollWidth) {
-        datesDiv.removeChild(datesDiv.firstElementChild);
+        datesDiv.firstElementChild.parentNode.removeChild(datesDiv.firstElementChild);
         datesDiv.appendChild(...divAppenderForward(maxDate, 1, 1));
         minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 1);
         currPos = datesDiv.scrollLeft = currPos + 100;
@@ -24,7 +24,7 @@ function rightScroll(){
 
 function leftScroll(){
     if (datesDiv.scrollLeft <= 0) {
-        datesDiv.removeChild(datesDiv.lastElementChild);
+        datesDiv.lastElementChild.parentNode.removeChild(datesDiv.lastElementChild);
         datesDiv.prepend(...divAppenderBackward(minDate, 1, 0));
         maxDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate() - 1);
         currPos = datesDiv.scrollLeft = currPos - 100;
