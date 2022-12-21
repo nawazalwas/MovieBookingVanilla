@@ -1,7 +1,7 @@
 const globalDate = new Date();
 let maxDate = globalDate;
 let minDate = globalDate;
-console.log(globalDate);
+
 const calender = document.getElementById("calender-wrapper");
 calender.addEventListener("load", () => { onLoad() })
 
@@ -42,6 +42,7 @@ function onLoad() {
     //let bwd = divAppenderBackward(date);
     let fwd = divAppenderForward(globalDate);
     datesDiv.append(...fwd);
+    console.log(datesDiv);
 
     /* datesDiv.addEventListener('scroll', () => {
 
