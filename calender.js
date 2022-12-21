@@ -136,3 +136,4 @@ function dateFormate(date) {
     return { day, month, monthDate, year };
 }
 
+onLoad();
