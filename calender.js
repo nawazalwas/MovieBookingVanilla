@@ -11,8 +11,10 @@ let currPos = datesDiv.scrollLeft;
 
 
 function rightScroll(){
+    const datesDiv = calender.querySelector("#dates-wrap");
     if ((datesDiv.scrollLeft + datesDiv.clientWidth) >= datesDiv.scrollWidth) {
-        datesDiv.firstElementChild.parentNode.removeChild(datesDiv.firstElementChild);
+        datesDiv.removeChild(datesDiv.firstElementChild);
+        console.log(datesDiv);
         datesDiv.appendChild(...divAppenderForward(maxDate, 1, 1));
         minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 1);
         currPos = datesDiv.scrollLeft = currPos + 100;
@@ -23,8 +25,9 @@ function rightScroll(){
 }
 
 function leftScroll(){
+    const datesDiv = calender.querySelector("#dates-wrap");
     if (datesDiv.scrollLeft <= 0) {
-        datesDiv.lastElementChild.parentNode.removeChild(datesDiv.lastElementChild);
+        datesDiv.removeChild(datesDiv.lastElementChild);
         datesDiv.prepend(...divAppenderBackward(minDate, 1, 0));
         maxDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate() - 1);
         currPos = datesDiv.scrollLeft = currPos - 100;
