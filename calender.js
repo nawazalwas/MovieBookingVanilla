@@ -14,7 +14,7 @@ function rightScroll(){
     const datesDiv = calender.querySelector("#dates-wrap");
     if ((datesDiv.scrollLeft + datesDiv.clientWidth) >= datesDiv.scrollWidth) {
         datesDiv.removeChild(datesDiv.firstElementChild);
-        console.log(datesDiv);
+        //console.log(datesDiv);
         datesDiv.appendChild(...divAppenderForward(maxDate, 1, 1));
         minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 1);
         currPos = datesDiv.scrollLeft = currPos + 100;
@@ -42,7 +42,7 @@ function onLoad() {
     //let bwd = divAppenderBackward(date);
     let fwd = divAppenderForward(globalDate);
     datesDiv.append(...fwd);
-    console.log(datesDiv);
+    //console.log(datesDiv);
 
     /* datesDiv.addEventListener('scroll', () => {
 
