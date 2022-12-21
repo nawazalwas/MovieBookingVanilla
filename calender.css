@@ -1,0 +1,50 @@
+
+#calender-wrapper{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100px;
+    width: 100%;
+    background-color: blue;
+    margin-top: 30px;
+}
+
+#calender-wrapper button{
+    border-style: none;
+    background-color: blue;
+    width: 10%;
+    font-size: 250%;
+    padding-bottom: 2.5%;
+}
+#dates-wrap{
+    width: 80%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    background-color: blue;
+    padding: 3px;
+}
+
+#dates-wrap::-webkit-scrollbar {
+    display: none;
+}
+#dates-wrap div{
+    background-color: white;
+    height: 100%;
+    display: inline-block;
+    padding: 0.9em;
+    margin: 0px 3px;
+    border-radius: 15px;
+    border: 1px solid rgb(65, 45, 45);
+}
+
+
+#dates-wrap div p {
+    
+    
+}
+

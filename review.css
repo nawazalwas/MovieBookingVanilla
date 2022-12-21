@@ -1,0 +1,87 @@
+#root{
+    background-color: white;
+}
+
+#review-root {
+    margin-bottom: 500px;
+}
+
+#review-root textarea {
+    border : 2px solid blue;
+    border-radius: 5px;
+    margin-left: 0px;
+}
+
+#review-root button{
+    font-size: 14px;
+    margin: 7px 5px;
+    padding: 3px 18px;
+    background-color: blue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+#review-root span{
+    /* display: inline-block; */
+    margin: 0px 5px;
+    padding: px 0px;
+    /* display: inline-block; */
+}
+
+#review-root ul{
+    list-style: none;
+    margin-left: 0px;
+    padding-inline-start: 0px;
+}
+
+#review-root li{
+    display: block;
+    min-width: 30px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#review-root li span:first-child{
+    background-color: rgba(0, 0, 255, 0.096);
+    display: block;
+    border: 2px solid blue;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#review-root h2{
+    width: 70%;
+    padding: 15px 0px;
+    margin: auto;
+    color: blue;
+}
+
+#text-wrapper{
+    width: 70%;
+    height: 100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    align-items: end;
+}
+
+#review-wrapper{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+#review{
+    height: 100%;
+    padding-inline-start: 0px;
+}
+
+#add-btn{
+    height: 30%;
+    max-width: 150px;
+    margin-bottom: 0%;
+    border-radius: 5px;
+
+}

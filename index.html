@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./app.js" defer type="module"></script>
+    <script src="./review.js" defer></script>
+    <script src="calender.js" defer></script>
+    
+    <link rel="stylesheet" href="calender.css" />
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="stylesheet" href="./review.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">Movie Book</div>
+      <ul>
+        <li><a>Home</a></li>
+        <li><a>About Us</a></li>
+        <li><a>Know More</a></li>
+      </ul>
+    </nav>
+    <div id="calender-wrapper">
+      <button onclick="leftScroll()">&#8249;</button>
+
+      <div id ="dates-wrap">
+      </div>
+
+      <button onclick="rightScroll()">&#8250;</button>
+    </div>
+
+    <main></main>
+    <div id="booker">
+      <h3 class="v-none">Seat Selector</h3>
+      <div id="booker-grid-holder"></div>
+      <button id="book-ticket-btn" class="v-none">Book my seats</button>
+    </div>
+    <div id="review-root">
+      <h2>Feel free to review movie</h2>
+      <div id="text-wrapper">
+        <textarea id="review"></textarea>
+        <button id="add-btn">Add</button>
+      </div>
+      <div id="review-wrapper">
+        <ul id="reviews"></ul>
+      </div>
+    </div>
+  </body>
+</html>
