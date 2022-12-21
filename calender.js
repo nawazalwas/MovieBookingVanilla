@@ -1,7 +1,7 @@
 const globalDate = new Date();
 let maxDate = globalDate;
 let minDate = globalDate;
-
+console.log(globalDate);
 const calender = document.getElementById("calender-wrapper");
 calender.addEventListener("load", () => { onLoad() })
 
@@ -134,3 +134,4 @@ function dateFormate(date) {
 
     return { day, month, monthDate, year };
 }
+
