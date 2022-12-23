@@ -2,66 +2,54 @@ const globalDate = new Date();
 let maxDate = globalDate;
 let minDate = globalDate;
 
-const calender = document.getElementById("calender-wrapper");
-calender.addEventListener("load", () => { onLoad() })
-
-const datesDiv = calender.querySelector("#dates-wrap");
-
-let currPos = datesDiv.scrollLeft;
+onLoad1();
 
 
-function rightScroll(){
+function onLoad1() {
+
+    const calender = document.getElementById("calender-wrapper");
     const datesDiv = calender.querySelector("#dates-wrap");
-    if ((datesDiv.scrollLeft + datesDiv.clientWidth) >= datesDiv.scrollWidth) {
-        datesDiv.removeChild(datesDiv.firstElementChild);
-        //console.log(datesDiv);
-        datesDiv.appendChild(...divAppenderForward(maxDate, 1, 1));
-        minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 1);
-        currPos = datesDiv.scrollLeft = currPos + 100;
-    }else{
-        currPos = datesDiv.scrollLeft = currPos + 100;
-    }
-
-}
-
-function leftScroll(){
-    const datesDiv = calender.querySelector("#dates-wrap");
-    if (datesDiv.scrollLeft <= 0) {
-        datesDiv.removeChild(datesDiv.lastElementChild);
-        datesDiv.prepend(...divAppenderBackward(minDate, 1, 0));
-        maxDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate() - 1);
-        currPos = datesDiv.scrollLeft = currPos - 100;
-    }else{
-        currPos = datesDiv.scrollLeft = currPos - 100;
-    }
-
-}
+    const leftBtn = calender.querySelector("#left");
+    const rightBtn = calender.querySelector("#right");
+    let currPos = datesDiv.scrollLeft;
+    initialLoading(globalDate, datesDiv);
 
 
-function onLoad() {
-    //let bwd = divAppenderBackward(date);
-    let fwd = divAppenderForward(globalDate);
-    datesDiv.append(...fwd);
-    //console.log(datesDiv);
-
-    /* datesDiv.addEventListener('scroll', () => {
-
-        if ((datesDiv.scrollLeft + datesDiv.clientWidth) >= datesDiv.scrollWidth) {
-            datesDiv.removeChild(datesDiv.firstElementChild);
-            datesDiv.appendChild(...divAppenderForward(maxDate, 1, 1));
-        } else if (datesDiv.scrollLeft <= 0) {
+    leftBtn.addEventListener("click",()=>{
+        if (datesDiv.scrollLeft <= 0) {
             datesDiv.removeChild(datesDiv.lastElementChild);
             datesDiv.prepend(...divAppenderBackward(minDate, 1, 0));
-            
-
+            maxDate = new Date(maxDate.getFullYear(), maxDate.getMonth(), maxDate.getDate() - 1);
+            currPos = datesDiv.scrollLeft = currPos - 100;
+        } else {
+            currPos = datesDiv.scrollLeft = currPos - 100;
         }
 
-    }); */
+    });
+    rightBtn.addEventListener("click",()=>{
+        if ((datesDiv.scrollLeft + datesDiv.clientWidth) >= datesDiv.scrollWidth) {
+            datesDiv.removeChild(datesDiv.firstElementChild);
+            //console.log(datesDiv);
+            datesDiv.appendChild(...divAppenderForward(maxDate, 1, 1));
+            minDate = new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate() + 1);
+            currPos = datesDiv.scrollLeft = currPos + 100;
+        } else {
+            currPos = datesDiv.scrollLeft = currPos + 100;
+        }
 
+    });
+
+}
+
+function initialLoading(globalDate, datesDiv) {
+    const fragment = document.createDocumentFragment();
+    
+    let fwd = divAppenderForward(globalDate);
+    fragment.append(...fwd);
+    datesDiv.append(fragment);
 }
 
 function divAppenderForward(date, e = 20, next = 0) {
-
 
     const divArr = [];
     let i = 0;
@@ -69,8 +57,8 @@ function divAppenderForward(date, e = 20, next = 0) {
         const d = new Date(date.getFullYear(), date.getMonth(), date.getDate() + i + next);
         divArr[i] = datesDivCreater(d);
         //console.log(d,new Date(globalDate.getFullYear(), globalDate.getMonth(), globalDate.getDate()));
-        if(d.toDateString() === new Date(globalDate.getFullYear(), globalDate.getMonth(), globalDate.getDate()).toDateString()){
-            divArr[i].classList.add("present");  
+        if (d.toDateString() === new Date(globalDate.getFullYear(), globalDate.getMonth(), globalDate.getDate()).toDateString()) {
+            divArr[i].classList.add("present");
         }
         maxDate = d;
         i++;
@@ -81,8 +69,6 @@ function divAppenderForward(date, e = 20, next = 0) {
 }
 
 function divAppenderBackward(date, e = 20, prev = 0) {
-
-
     const divArr = [];
     let i = e - 1;
     while (i >= 0) {
@@ -135,5 +121,3 @@ function dateFormate(date) {
 
     return { day, month, monthDate, year };
 }
-
-onLoad();
