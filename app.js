@@ -4,7 +4,104 @@ const bookTicketBtn = document.querySelector('#book-ticket-btn')
 
 bookTicketBtn.addEventListener('click', (e) => handleBookTicket(e))
 
-let selectedSeats = []
+const booker1 = document.getElementById("bookerWrapper");
+
+const selectedSeats = booker1.querySelector("#selectedSeats");
+let oldUl = selectedSeats.querySelector("#selectedSeatsList");
+
+const seatBooker = booker1.querySelector("#seatBooker");
+let oldContainer = seatBooker.querySelector(".container");
+
+
+
+let allSelectedSeats = {};
+
+function selectedSeatDisplay(parent, movieId) {
+    const seatObj = allSelectedSeats[movieId];
+    if (seatObj) {
+        const newUl = document.createElement("ul");
+        newUl.setAttribute("id", "selectedSeatsList");
+
+        for (const key in seatObj) {
+            const li = document.createElement("li");
+            li.innerHTML = seatObj[key];
+            newUl.append(li);
+        }
+        parent.replaceChild(newUl,oldUl);
+        oldUl = newUl;
+    }
+
+
+}
+
+
+
+function seatsMatrix(parent1,parent2, numberofRows, numberOfSeatInEachRow, movieId) {
+
+    fetchMovieAvailability(movieId).then(avlbSeatNo => {
+        
+        const selectedSeats = allSelectedSeats[movieId] || {};
+        const matrix = document.createDocumentFragment();
+        let k = 0;
+
+        const screen = divUnitCreater("screen");
+        matrix.append(screen);
+        for (let i = 0; i < numberofRows; i++) {
+            const row = divUnitCreater("row");
+            for (let j = 0; j < numberOfSeatInEachRow; j++) {
+                const seat = divUnitCreater("seat");
+                seat.dataset.number = (i * numberOfSeatInEachRow) + j + 1;
+
+                if (k < avlbSeatNo.length && (seat.dataset.number - 0) === avlbSeatNo[k]) {
+                    seat.classList.add("occupied");
+                    k++;
+                }
+
+                if (selectedSeats && selectedSeats[seat.dataset.number]) {
+                    seat.classList.add("selected");
+
+                }
+
+                seat.addEventListener("click", (e) => {
+                    if (e.target.classList.contains("occupied")) {
+                        return;
+                    }
+                    if (e.target.classList.contains("selected")) {
+                        e.target.classList.remove("selected");
+                        delete selectedSeats[e.target.dataset.number];
+                    } else {
+                        e.target.classList.add("selected");
+                        selectedSeats[e.target.dataset.number] = e.target.dataset.number;
+                    }
+                    selectedSeatDisplay(parent2, movieId);
+
+                });
+                row.append(seat);
+            }
+            matrix.append(row);
+            
+        };
+
+        const newContainer = divUnitCreater("container");
+        newContainer.append(matrix);
+
+        parent1.replaceChild(newContainer, oldContainer);
+        oldContainer = newContainer;
+
+        allSelectedSeats[movieId] = selectedSeats;
+
+    });
+
+}
+
+function divUnitCreater(className = "", selectedSeats = {}) {
+    const div = document.createElement("div");
+    div.classList.add(className);
+    if (className === "seat") {
+
+    }
+    return div;
+}
 
 function htmlToElement(html) {
 
@@ -128,11 +225,16 @@ const createMovieEl = (movieObj) => {
 
         if (e.target.dataset.id) {
 
-            renderSeatBooker(e.target.dataset.id)
+            //renderSeatBooker(e.target.dataset.id);
+            seatsMatrix(seatBooker,selectedSeats, 8, 12, e.target.dataset.id);
+            selectedSeatDisplay(selectedSeats, e.target.dataset.id);
+
 
         } else {
 
-            renderSeatBooker(e.target.parentElement.dataset.id)
+            //renderSeatBooker(e.target.parentElement.dataset.id);
+            seatsMatrix(seatBooker,selectedSeats, 8, 12, e.target.parentElement.dataset.id);
+            selectedSeatDisplay(selectedSeats, e.target.parentElement.dataset.id);
 
         }
 

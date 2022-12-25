@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./app.js" defer type="module"></script>
     <script src="./review.js" defer></script>
-    <script src="calender.js" defer></script>
-    
-    <link rel="stylesheet" href="calender.css" />
+    <script src="./calender.js" defer type="module"></script>
+    <script src="./timePicker.js" defer></script>
+    <script src="./booker.js" defer type="module"></script>
+
+    <link rel="stylesheet" href="./booker.css">
+    <link rel="stylesheet" href="./timePicker.css" />
+    <link rel="stylesheet" href="./calender.css" />
     <link rel="stylesheet" href="./app.css" />
     <link rel="stylesheet" href="./review.css" />
     <link
@@ -19,7 +23,7 @@
   </head>
 
   <body>
-    <nav>
+    <nav class="navWrapper">
       <div class="logo" onload="onLoad()">Movie Book</div>
       <ul>
         <li><a>Home</a></li>
@@ -27,21 +31,87 @@
         <li><a>Know More</a></li>
       </ul>
     </nav>
-    <div id="calender-wrapper">
-      <button id="left">&#8249;</button>
+    <main></main>
+    
+    <div id="geoInformation">
+      <div id="calender-wrapper">
+        <button id="left">&#8249;</button>
+        <div id="dates-wrap"></div>
+        <button id="right">&#8250;</button>
+      </div>
+      <div id="timeWrapper">
+        <div class="time-picker" data-time="00:00">
+          <div class="hour">
+            <div class="hr-up"></div>
+            <input type="number" class="hr" value="00" />
+            <div class="hr-down"></div>
+          </div>
+  
+          <div class="separator">:</div>
+  
+          <div class="minute">
+            <div class="min-up"></div>
+            <input type="number" class="min" value="00" />
+            <div class="min-down"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div id="bookerWrapper">
+      <div id="priceBooker">
+        <ul>
+          <li id="selectedSeats">
+            <span>Seats</span>
+            <ul id="selectedSeatsList">
+              
+            </ul>
+          </li>
+          <li id="moviePrice">
+            <span>Price</span>
+            <span>Rs 235</span>
+          </li>
+          <li id="tax">
+            <span>Tax</span>
+            <span>18%</span>
+          </li>
+          <li id="total">
+            <span>Total</span>
+            <span>440</span>
 
-      <div id ="dates-wrap">
+          </li>
+
+        </ul>
+        <button id="priceBtn">
+          Book Ticket
+        </button>
+      </div>
+      <div id="seatBooker">
+        <ul class="showcase">
+          <li>
+            <div class="seat"></div>
+            <small>N/A</small>
+          </li>
+          <li>
+            <div class="seat selected"></div>
+            <small>Selected</small>
+          </li>
+          <li>
+            <div class="seat occupied"></div>
+            <small>Occupied</small>
+          </li>
+        </ul>
+    
+        <div class="container">
       </div>
 
-      <button id="right">&#8250;</button>
+      </div>
     </div>
+    
+    
+    
 
-    <main></main>
-    <div id="booker">
-      <h3 class="v-none">Seat Selector</h3>
-      <div id="booker-grid-holder"></div>
-      <button id="book-ticket-btn" class="v-none">Book my seats</button>
-    </div>
+    
     <div id="review-root">
       <h2>Feel free to review movie</h2>
       <div id="text-wrapper">
@@ -51,6 +121,13 @@
       <div id="review-wrapper">
         <ul id="reviews"></ul>
       </div>
+    </div>
+    <!-- <button id="reload1">RELOAD</button>
+    <div id="root1"></div> -->
+    <div id="booker">
+      <h3 class="v-none">Seat Selector</h3>
+      <div id="booker-grid-holder"></div>
+      <button id="book-ticket-btn" class="v-none">Book my seats</button>
     </div>
   </body>
 </html>

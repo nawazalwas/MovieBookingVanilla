@@ -1,0 +1,105 @@
+#timeWrapper * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#timeWrapper{
+    width: 20%;
+    font-family: 'Saira', sans-serif;
+    /* padding: 0px 0px; */
+    margin-top: 30px;
+    /* height: 102%; */
+    background-color: rgba(0, 0, 255, 0.096);
+}
+
+#timeWrapper input[type="number"]::-webkit-outer-spin-button,
+#timeWrapper input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#timeWrapper input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+#timeWrapper .time-picker {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	max-width: 200px;
+	margin: 0 0;
+	padding: 0px 15px;
+	background-color: blue;
+	/* border-radius: 7px; */
+	box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+	color: #53565A;
+	font-size: 12px;
+	/* font-weight: 300; */
+	user-select: none;
+	height: 100%;
+}
+#timeWrapper .time-picker .separator{
+	color: white;
+	font-size: 30px;
+
+}
+#timeWrapper .time-picker .hour,
+#timeWrapper .time-picker .minute {
+	position: relative;
+	min-width: 50px;
+	text-align: center;
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
+}
+
+#timeWrapper .time-picker .hour .hr,
+#timeWrapper .time-picker .minute .min {
+	background: none;
+	font-size: 30px;
+	appearance: none;
+	border: none;
+	outline: none;
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-family: 'Saira', sans-serif;
+	color: white;
+}
+
+#timeWrapper .time-picker .hour .hr-up,
+#timeWrapper .time-picker .hour .hr-down,
+#timeWrapper .time-picker .minute .min-up,
+#timeWrapper .time-picker .minute .min-down {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 25px;
+	height: 11px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	cursor: pointer;
+}
+
+#timeWrapper .time-picker .hour .hr-up,
+#timeWrapper .time-picker .minute .min-up {
+	top: -15px;
+	/* background-color: yellow; */
+	border-bottom: 20px solid #f4af1b;
+}
+
+#timeWrapper .time-picker .hour .hr-down,
+#timeWrapper .time-picker .minute .min-down {
+	bottom: -15px;
+	border-top: 20px solid #f4af1b;
+}
+
+#timeWrapper .time-picker .hour .hr-up:hover,
+#timeWrapper .time-picker .hour .hr-down:hover,
+#timeWrapper .time-picker .minute .min-up:hover,
+#timeWrapper .time-picker .minute .min-down:hover {
+	border-bottom-color: #835e0d;
+	border-top-color: #835e0d;
+}

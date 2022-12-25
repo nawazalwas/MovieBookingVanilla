@@ -1,0 +1,166 @@
+#bookerWrapper {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    margin-top: 50px;
+    display: flex;
+    /* border: 2px solid blue; */
+    border-radius: 5px;
+}
+
+#priceBooker {
+    background-color: rgba(0, 0, 255, 0.096);
+    border-right: 2px solid blue;
+    /* border-radius: 5px; */
+    margin: 0px auto;
+    /* padding: 0px; */
+    width: 30%;
+    min-width: 260px;
+}
+
+#priceBooker>ul {
+    width: 250px;
+    list-style: none;
+    padding: 5% 5px 0px 5px;
+    margin: 20px auto;
+    /* height: 52%; */
+}
+
+#priceBooker>ul li {
+    padding: 5px 10px;
+
+}
+
+#priceBooker>ul li span {
+    font-weight: bolder;
+}
+
+#selectedSeats {}
+
+#selectedSeatsList {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px;
+
+
+}
+
+#selectedSeatsList li {
+    border: 2px solid blue;
+    border-radius: 5px;
+    min-width: 20px;
+    margin: 3px;
+}
+
+#moviePrice,
+#tax,
+#total {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#total {
+    border-top: 2px solid blue
+}
+
+#priceBtn {
+    background-color: blue;
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: block;
+    margin: 10px auto 30px auto;
+    color: white;
+}
+
+#seatBooker {
+    background-color: rgba(0, 0, 255, 0.096);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    min-width: 500px;
+    width: 70%;
+}
+
+#seatBooker .container {
+    perspective: 1000px;
+    margin-bottom: 30px;
+}
+
+#seatBooker .seat {
+    background-color: white;
+    height: 12px;
+    width: 15px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+#seatBooker .seat.selected {
+    background-color: #f4af1b;
+}
+
+#seatBooker .seat.occupied {
+    background-color: blue;
+}
+
+#seatBooker .seat:nth-of-type(2) {
+    margin-right: 25px;
+}
+
+#seatBooker .seat:nth-last-of-type(2) {
+    margin-left: 25px;
+}
+
+#seatBooker .seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#seatBooker .showcase .seat:not(.occupied):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+#seatBooker .showcase {
+    background: rgba(0, 0, 255, 0.096);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+#seatBooker .showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+#seatBooker .showcase li small {
+    margin-left: 2px;
+}
+
+#seatBooker .row {
+    display: flex;
+}
+
+#seatBooker .screen {
+    background-color: #fff;
+    height: 70px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
