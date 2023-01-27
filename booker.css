@@ -76,6 +76,10 @@
     color: white;
 }
 
+#priceBtn:hover{
+    cursor:pointer;
+}
+
 #seatBooker {
     background-color: rgba(0, 0, 255, 0.096);
     color: #fff;
