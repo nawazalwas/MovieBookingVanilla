@@ -156,6 +156,10 @@ nav ul {
     padding: 20px 30px;
 }
 
+.footer a{
+    color: yellow;
+}
+
 .footer_social {
     display: flex;
     justify-content: space-between;
