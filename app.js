@@ -50,6 +50,7 @@ function seatsMatrix(parent1,parent2, numberofRows, numberOfSeatInEachRow, movie
             const row = divUnitCreater("row");
             for (let j = 0; j < numberOfSeatInEachRow; j++) {
                 const seat = divUnitCreater("seat");
+                
                 seat.dataset.number = (i * numberOfSeatInEachRow) + j + 1;
 
                 if (k < avlbSeatNo.length && (seat.dataset.number - 0) === avlbSeatNo[k]) {
@@ -76,6 +77,7 @@ function seatsMatrix(parent1,parent2, numberofRows, numberOfSeatInEachRow, movie
                     selectedSeatDisplay(parent2, movieId);
 
                 });
+                
                 row.append(seat);
             }
             matrix.append(row);

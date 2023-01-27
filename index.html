@@ -9,12 +9,20 @@
     <script src="./calender.js" defer type="module"></script>
     <script src="./timePicker.js" defer></script>
     <script src="./booker.js" defer type="module"></script>
+    <script
+      src="https://kit.fontawesome.com/76664b26bf.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <link rel="stylesheet" href="./booker.css">
+    <link rel="stylesheet" href="./booker.css" />
     <link rel="stylesheet" href="./timePicker.css" />
     <link rel="stylesheet" href="./calender.css" />
     <link rel="stylesheet" href="./app.css" />
     <link rel="stylesheet" href="./review.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -32,7 +40,7 @@
       </ul>
     </nav>
     <main></main>
-    
+
     <div id="geoInformation">
       <div id="calender-wrapper">
         <button id="left">&#8249;</button>
@@ -46,9 +54,9 @@
             <input type="number" class="hr" value="00" />
             <div class="hr-down"></div>
           </div>
-  
+
           <div class="separator">:</div>
-  
+
           <div class="minute">
             <div class="min-up"></div>
             <input type="number" class="min" value="00" />
@@ -57,15 +65,13 @@
         </div>
       </div>
     </div>
-  
+
     <div id="bookerWrapper">
       <div id="priceBooker">
         <ul>
           <li id="selectedSeats">
             <span>Seats</span>
-            <ul id="selectedSeatsList">
-              
-            </ul>
+            <ul id="selectedSeatsList"></ul>
           </li>
           <li id="moviePrice">
             <span>Price</span>
@@ -78,13 +84,9 @@
           <li id="total">
             <span>Total</span>
             <span>440</span>
-
           </li>
-
         </ul>
-        <button id="priceBtn">
-          Book Ticket
-        </button>
+        <button id="priceBtn">Book Ticket</button>
       </div>
       <div id="seatBooker">
         <ul class="showcase">
@@ -101,17 +103,11 @@
             <small>Occupied</small>
           </li>
         </ul>
-    
-        <div class="container">
-      </div>
 
+        <div class="container"></div>
       </div>
     </div>
-    
-    
-    
 
-    
     <div id="review-root">
       <h2>Feel free to review movie</h2>
       <div id="text-wrapper">
@@ -128,6 +124,64 @@
       <h3 class="v-none">Seat Selector</h3>
       <div id="booker-grid-holder"></div>
       <button id="book-ticket-btn" class="v-none">Book my seats</button>
+    </div>
+    <div class="footer">
+      <div class="footer_line"></div>
+      <div class="footer_social">
+        <div class="footer_social_logo">Movie Book</div>
+        <ul class="footer_social_icons">
+          <li>
+            <a href="#0">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#0" class="">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#0" class="">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#0">
+              <i class="fab fa-google"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#0" class="active">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer_line"></div>
+      <div class="footer_info">
+        <div class="footer_info_copyRight">
+          <p>
+            Copyright © 2020.All Rights Reserved By <a href="#0">Boleto </a>
+          </p>
+        </div>
+        <ul class="footer_info_links">
+          <li>
+            <a href="#0">About</a>
+          </li>
+          <li>
+            <a href="#0">Terms Of Use</a>
+          </li>
+          <li>
+            <a href="#0">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#0">FAQ</a>
+          </li>
+          <li>
+            <a href="#0">Feedback</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
